@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Unique page title - My Site</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="magic">
+    <div class="header">
+        <div class="snow-blocks">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+        </div>
+        Добро пожаловать в Хогвартс!
+    </div>
+    <div class="welcom">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/XF6GrRLW7qE?autoplay=1"  style="border-radius: 20px; margin:auto;" allowfullscreen> </iframe>
+    </div>
+    <script>
+        localStorage.setItem('curNumber', 0);
+
+        window.check = () => {
+            const answers = ['NDc=', 'MjU2MQ==', 'MTQ1MQ==', 'MzUzNzg='];
+            const number = Number(localStorage.getItem('curNumber', 0));
+            const res = document.querySelector(`input[name='answer${number}']`).value;
+
+            console.log(btoa(res), answers[number], number);
+
+            if (btoa(res) === answers[number]) {
+                localStorage.setItem('curNumber', number + 1);
+            
+                const curRiddle = document.querySelector(`.riddle${number}`);
+                const nextRiddle = document.querySelector(`.riddle${number + 1}`);
+
+                curRiddle.style.display = 'none';
+                nextRiddle.style.display = 'initial';
+            }
+        }
+    </script>
+    <div class="main-content">
+        <div class="riddle riddle0">
+            <div class="riddle__header">Чтож юный вошебник, новый год на носу, надеюсь ролик создал напомнил тебе об этом, а значит самое время искать подарки! Разгадай загадку, введи номера нужных зелий ниже.</div>
+            <div class="riddle__content">
+                Перед тобой — опасность, а позади — спасенье,
+                Помогут тебе двое, кого найдешь средь нас;
+                С одной из семерых вперёд продолжишь ты движенье
+                Другая же назад тебя перенесёт тотчас.
+                В двоих из нас найдёшь ты лишь крапивное вино,
+                А три несут погибель, стоят в ряду тайком.
+                Так выбирай же, из какой отведать суждено,
+                Для этого четыре подсказки мы даём.
+                Напрасно яд пытался скрыть свой смертоносный жар,
+                Всегда его найдёшь ты налево от вина,
+                И знай, что те, кто по краям, различный держат дар,
+                Но если хочешь дальше, не поможет ни одна.
+                Разнимся мы размером все, от края и до края,
+                Сидит не в меньшей смерть твоя, но и не в большей тоже;
+                Вторая с правого конца и с левого вторая
+                По вкусу — словно близнецы, хоть с виду непохожи.
+
+                <div class="potions"></div>
+            </div>
+
+            <form>
+                <input type="text" placeholder="ответ" name="answer0"></input>
+                <input type="button" value="Отправить" onclick="window.check()"></input>
+            </form>
+        </div>
+        <div class="riddle riddle1">
+            <div class="riddle__header">Поздравляю юный маг, ты не расстерялся и смоге преодолеть опасность, выбрав нужные зелья!</div>
+            <div class="riddle__content">
+                Теперь найди ты в доме ящик,
+                хранящий провода, там сбоку лежит послание тебе,
+                уж заждолось тебя оно, лежит уже очень давно
+                словам его скорей внемли и код быстрей сюда вводи!
+            </div>
+            <form>
+                <input type="text" placeholder="ответ" name="answer1"></input>
+                <input type="button" value="Отправить" onclick="window.check()"></input>
+            </form>
+        </div>
+        <div class="riddle riddle2">
+            <div class="riddle__header">Беги скорей на кухню, на самой верхней полки найдешь ты секретный ингридиент и там же письмо тебе пришло</div>
+            <div class="riddle__content">
+                Ингридиенты теперь ты знаешь, а вот пример нанесения зелья-антиневидимки на листок бумаги, узнай же что зашифровали в твоем письме!
+                <video src="paint.mov"  style="max-width: 400px;" controls>
+                    <p>Ваш браузер не поддерживает HTML5 видео. Используйте <a href="paint.mov">ссылку на видео</a> для доступа.</p>
+                </video>
+            </div>
+            <form>
+                <input type="text" placeholder="ответ" name="answer2"></input>
+                <input type="button" value="Отправить" onclick="window.check()"></input>
+            </form>
+        </div>
+        <div class="riddle riddle3">
+            <div class="riddle__header">Ты уже близок к соему подарку, осталось соввсем чуть-чуть...</div>
+            <div class="riddle__content">
+                Внимательно исследуй место, где ты привык еду вкушать,
+                найдешь еще одно письмо, возможно для его разгадки,
+                понадобится карандаш, самый обычный и простой,
+                теперь жду код я свой)
+            </div>
+            <form>
+                <input type="text" placeholder="ответ" name="answer3"></input>
+                <input type="button" value="Отправить" onclick="window.check()"></input>
+            </form>
+        </div>
+        <div class="riddle riddle4">
+            <div class="riddle__header">Поздравляю!</div>
+            <div class="riddle__content">
+                Ну вот и все, проверки ты все прошел тут на Ура,
+                Надеюсь понравилась тебе эта мини-игра,
+                Желаю счастья и любви,
+                Беги подарок свой смотри,
+                Найдшь его ты в платянном шкафу(ну там не только платья),
+                Одежду раздвигай скорей и хватай пакет и аккуратней не располней)))
+
+                P.S С новым годом, до встречи в следующем году!
+            </div>
+        </div>
+    </div>
+</body>
+</html>
